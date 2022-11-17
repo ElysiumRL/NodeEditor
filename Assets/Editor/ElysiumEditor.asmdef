@@ -1,0 +1,20 @@
+{
+    "name": "ElysiumEditor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:d903b9f1ee53d1b45824b9a9b188fcfe",
+        "GUID:f54a6d8be97eadc41a268323ab2f351c",
+        "GUID:71e1a00c49b90904a8c085ecd8e6f026"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

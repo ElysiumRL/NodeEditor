@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Graph Controller
+  - Camera
+  - Port
+  - Port Link
+  - Window
+  - Grid
+  - Input Port Spawner
+  - Output Port Spawner
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - Grid
+  - Water
+  - UI
+  - Port
+  - PortLink
+  - Window
+  - Fields
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Windows
+    uniqueID: 1947836893
+    locked: 0
+  - name: Ports
+    uniqueID: 13275935
+    locked: 0
+  - name: Links
+    uniqueID: 2572521045
+    locked: 0
+  - name: Grid
+    uniqueID: 144859347
+    locked: 0
