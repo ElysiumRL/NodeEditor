@@ -54,9 +54,9 @@ namespace ElysiumGraphs
 		[SerializeField]
 		protected PortState portState;
 
-		protected RectTransform rectTransform;
+		public RectTransform rectTransform;
 
-		protected TextMeshProUGUI text;
+		public TextMeshProUGUI text;
 
 		public Node node;
 
@@ -113,6 +113,7 @@ namespace ElysiumGraphs
 				portImage.sprite = portIcons[portState];
 				portImage.color = new Color(portType.color.R,portType.color.G,portType.color.B,portType.color.A);
 			}
+			text.text = defaultName;
 		}
 
 		private void Update()
@@ -165,7 +166,7 @@ namespace ElysiumGraphs
 			{
 				Debug.LogError("Parent Node Not Found !");
 			}
-			
+
 			text.text = defaultName;
 		}
 

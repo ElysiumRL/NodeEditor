@@ -240,6 +240,8 @@ MonoBehaviour:
       value: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   portImage: {fileID: 7955842569543942710}
   portState: 0
+  rectTransform: {fileID: 0}
+  text: {fileID: 0}
   node: {fileID: 0}
   isRetVal: 0
   inputPortConnected: {fileID: 0}

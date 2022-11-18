@@ -1,10 +1,11 @@
 using System;
 using System.Linq;
 using System.Collections.Generic;
-
+using ElysiumAttributes;
 namespace ElysiumUtilities
 {
 	[Serializable]
+	[ExcludeFromNodeBuild]
 	public class Dict<TKey, TValue>
 	{
 		[UnityEngine.SerializeField]
@@ -32,6 +33,7 @@ namespace ElysiumUtilities
 	}
 
 	[Serializable]
+	[ExcludeFromNodeBuild]
 	public class Map<TKey, TValue>
 	{
 		[UnityEngine.SerializeField]
@@ -105,6 +107,7 @@ namespace ElysiumUtilities
 
 	/// Special variant of Map where the TValue is a List of TValues, Useful when you have 1 key holding multiple values
 	[Serializable]
+	[ExcludeFromNodeBuild]
 	public class MultiMap<TKey, TValue>
 	{
 		[UnityEngine.SerializeField]
@@ -194,6 +197,7 @@ namespace ElysiumUtilities
 
 	/// Special variant of Map where the TValue is a List of TValues, Useful when you have 1 key holding multiple values
 	[Serializable]
+	[ExcludeFromNodeBuild]
 	public class MultiHashMap<TKey, TValue>
 	{
 		[UnityEngine.SerializeField]

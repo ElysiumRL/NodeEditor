@@ -198,6 +198,7 @@ namespace ElysiumEditor
 		[MenuItem("Graph View/Generate Port Types (No Editor Types)")]
 		private static void GeneratePortTypes()
 		{
+			PortBuilder.Initialize();
 			PortBuilder.FindAllPorts();
 			AssetDatabase.Refresh(ImportAssetOptions.ForceUpdate);
 			Debug.Log("Successfully generated Port Types !");

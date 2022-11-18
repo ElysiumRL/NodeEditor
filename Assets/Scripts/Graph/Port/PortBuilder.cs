@@ -23,6 +23,9 @@ public static class PortBuilder
 		//Map regeneration
 		portTypeList = null;
 		fieldList = null;
+		
+		portTypeList = new();
+		fieldList = new();
 
 		foreach (ObjectCollectionType collectionType in (ObjectCollectionType[])Enum.GetValues(typeof(ObjectCollectionType)))
 		{
@@ -43,8 +46,8 @@ public static class PortBuilder
 	//Finds and generates port types for all custom classes and also for all collection types
 	public static void FindAllPorts()
 	{
-		portTypeList.Clear();
-		portTypeList.TrimExcess();
+		//portTypeList.Clear();
+		//portTypeList.TrimExcess();
 		NodeRuntimeGeneration.GenerateNodesRuntime(out List<NodeClass> allCustomClasses);
 
 		GetAllNativePorts();
@@ -157,9 +160,11 @@ public static class PortBuilder
 	
 	public static PortType FindType(string type,ObjectCollectionType collectionType)
 	{
-		Debug.Log(portTypeList[collectionType].Find(x => x[type] != null)[type]);
+		Debug.Log("1Port Found : " + portTypeList[collectionType].Find((x) => x.dictionary.Find(y => y.Value.typeName == type) != null)[type]);
 
-		return portTypeList[collectionType].Find(x => x[type] != null)[type];
+		//Debug.Log("Port Found : " + portTypeList[collectionType].Find(map => map[type]));
+
+		return portTypeList[collectionType].Find((x) => x.dictionary.Find(y => y.Value.typeName == type) != null)[type];
 	}
 	
 	public static GameObject CreateInput(System.Type type, string name, Transform parent,bool addPortField,ObjectCollectionType collectionType)
@@ -174,7 +179,9 @@ public static class PortBuilder
 		{
 			GameObject field = CreateField(type, "Test", port.transform, true);
 		}
-		
+
+		portComponent.UpdatePortState();
+
 		return port;
 	}
 	public static GameObject CreateInput(string type, string name, Transform parent,bool addPortField,ObjectCollectionType collectionType)
@@ -189,7 +196,8 @@ public static class PortBuilder
 		{
 			//GameObject field = CreateField(type, "Test", port.transform, true);
 		}
-		
+		portComponent.UpdatePortState();
+
 		return port;
 	}
 	
@@ -239,7 +247,8 @@ public static class PortBuilder
 	
 	public static IFieldObject AddFieldToType(System.Type type,ObjectCollectionType collectionType)
 	{
-		return fieldList[collectionType].Find(x => x[type.Name] != null)[type.Name];
+		return null;
+		//return fieldList[collectionType].Find((x) => x.dictionary.Find(y => y.Value == type) != null)[type];
 	}
 	
 	

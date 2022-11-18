@@ -9,6 +9,7 @@ public class Initialization
 	[RuntimeInitializeOnLoadMethod]
 	public static void InitializeSystems()
 	{
+		PortBuilder.Initialize();
 		PortBuilder.FindAllPorts();
 	}
 
