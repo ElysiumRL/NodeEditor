@@ -104,8 +104,8 @@ namespace ElysiumGraphs
 		
 		public static List<NodeClass> GetAllNodeClasses()
 		{
-			return RuntimeAssetSave.LoadAllAssetsFromFolder<NodeClass>(RuntimeAssetSave.streamingAssetNodePath,
-				".json");
+			return RuntimeAssetSave.LoadAllAssetsFromFolder<NodeClass>
+				(RuntimeAssetSave.streamingAssetNodePath,".json");
 		}
 		
 	}
