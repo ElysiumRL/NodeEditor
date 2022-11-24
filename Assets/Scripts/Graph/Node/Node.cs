@@ -134,7 +134,13 @@ namespace ElysiumGraphs
 					case ParameterInfos.ParameterType.OutValue:
 						unusedParam = PortBuilder.CreateInput(methodParam.type,
 							methodParam.name,
-							outputPortRootHierarchy.transform, false,
+							inputPortRootHierarchy.transform, false,
+							ObjectCollectionType.Any);
+						break;
+					case ParameterInfos.ParameterType.ReturnValue:
+						unusedParam = PortBuilder.CreateInput(methodParam.type,
+							methodParam.name,
+							inputPortRootHierarchy.transform, false,
 							ObjectCollectionType.Any);
 						break;
 					default:
@@ -164,6 +170,7 @@ namespace ElysiumGraphs
 						inputParams.Add(inputs.Find(_port => _port.name == param.name)?.GetValue());
 						break;
 					case ParameterInfos.ParameterType.ReturnValue:
+						inputParams.Add(inputs.Find(_port => _port.name == param.name)?.GetValue());
 						break;
 					case ParameterInfos.ParameterType.OutValue:
 						inputParams.Add(null);
@@ -171,12 +178,25 @@ namespace ElysiumGraphs
 				}
 				i++;
 			}
+		
 
-			//Method Execution (the very important bit)
-			returnValue.SetValue(method.Invoke(null, inputParams.ToArray()));
-			
+			if(method.IsStatic)
+			{
+				returnValue.SetValue(method.Invoke(null, inputParams.ToArray()));
+			}
+			else
+			{
+				if(returnValue != null)
+				{
+					returnValue.SetValue(method.Invoke(new ElysiumDebugInternal(), inputParams.ToArray()));
+				}
+				else
+				{
+					method.Invoke(new ElysiumDebugInternal(), inputParams.ToArray());
+				}
+			}
+
 			i = 0;
-			//Sends the out values (if there were) in the output ports
 			foreach (ParameterInfos param in methodToRun.parameters)
 			{
 				if (param.parameterType == ParameterInfos.ParameterType.OutValue)

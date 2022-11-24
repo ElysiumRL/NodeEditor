@@ -20,5 +20,14 @@ namespace ElysiumGraphs
 		{
 			Debug.LogAssertion(format);
 		}
+
+		public string Test()
+		{
+			return "test";
+		}
+		public string Test4()
+		{
+			return "test88";
+		}
 	}
 }

@@ -18,6 +18,7 @@ namespace ElysiumGraphs
 				case PortState.Empty when field != null:
 					return field.TransmitToNode();
 				case PortState.Busy when portConnectionType == PortConnectionType.Single && portLinks.Count > 0:
+					Debug.Log("Value : " + inputPortConnected.GetValue());
 					return inputPortConnected.GetValue();
 			}
 

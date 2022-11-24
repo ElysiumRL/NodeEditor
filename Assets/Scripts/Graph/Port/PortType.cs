@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using ElysiumAttributes;
+using System;
 // ReSharper disable RedundantOverriddenMember
 
 
@@ -27,9 +28,9 @@ namespace ElysiumGraphs
 		public string typeName = "Default Type";
 	
 		//note: Using UnityEngine.Color creates self reference loop when serializing with newtonsoft json
-		public System.Drawing.Color color = System.Drawing.Color.Azure;
 		
-	
+		public System.Drawing.Color color = System.Drawing.Color.Azure;
+
 		public override string ToString()
 		{
 			return "Port Type : " + typeName + " / Collection Type : " + portCollectionType;

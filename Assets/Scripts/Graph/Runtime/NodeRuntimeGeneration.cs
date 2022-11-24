@@ -57,18 +57,21 @@ namespace ElysiumGraphs
 					}
 
 					MethodInfos newMethod = new MethodInfos(method.Name, type.Name, type.AssemblyQualifiedName);
+					int i = 0;
 
 					ParameterInfo[] parameters = method.GetParameters();
-					if (method.ReturnParameter != null)
+					if (method.ReturnParameter != null && method.ReturnType != typeof(void))
 					{
 						newMethod.defaultReturnValue = new ParameterInfos(
 							method.ReturnParameter.Name,
 							method.ReturnParameter.ParameterType.Name,
-							-1,
+							0,
 							ParameterInfos.ParameterType.ReturnValue);
+						newMethod.parameters.Add(newMethod.defaultReturnValue);
+						i++;
 					}
 
-					int i = 0;
+
 					foreach (ParameterInfo methodParam in parameters)
 					{
 						if (methodParam.IsOut)

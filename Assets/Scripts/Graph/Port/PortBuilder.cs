@@ -197,7 +197,6 @@ public static class PortBuilder
 			//GameObject field = CreateField(type, "Test", port.transform, true);
 		}
 		portComponent.UpdatePortState();
-
 		return port;
 	}
 	
