@@ -30,6 +30,7 @@ namespace ElysiumGraphs
 	[RequireComponent(typeof(GraphicRaycaster))]
 	public class FakeImGuiWindow : MonoBehaviour,
 		IPointerClickHandler,
+		IBeginDragHandler,
 		IDragHandler,
 		IEndDragHandler,
 		IPointerEnterHandler,
@@ -72,6 +73,21 @@ namespace ElysiumGraphs
 		public UnityEvent onWindowPositionChanged = new UnityEvent();
 
 		public int windowLayerOrder = 0;
+
+		private Vector3 mouseOffsetFromCenter = new Vector2();
+
+		public Vector3 MouseWorldPosition
+		{
+			get
+			{
+				Vector2 mousePos = Mouse.current.position.ReadValue();
+				Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(
+					new Vector3(mousePos.x, mousePos.y, transform.position.z));
+				mouseWorldPos.z = 0f;
+				return mouseWorldPos;
+			}
+		}
+
 
 		public void PushToFront()
 		{
@@ -122,7 +138,7 @@ namespace ElysiumGraphs
 					new Vector3(mousePos.x, mousePos.y, transform.position.z));
 				mouseWorldPos.z = 0f;
 
-				transform.position = mouseWorldPos;
+				transform.position = MouseWorldPosition + mouseOffsetFromCenter;
 
 				onWindowPositionChanged?.Invoke();
 			}
@@ -202,6 +218,17 @@ namespace ElysiumGraphs
 			{
 				Select();
 			}
+		}
+
+		public void OnBeginDrag(UnityEngine.EventSystems.PointerEventData eventData)
+		{
+			//TODO: make this part static
+			Vector2 mousePos = Mouse.current.position.ReadValue();
+			Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(
+				new Vector3(mousePos.x, mousePos.y, transform.position.z));
+			mouseWorldPos.z = 0f;
+
+			mouseOffsetFromCenter = new Vector3(transform.position.x - MouseWorldPosition.x, transform.position.y - MouseWorldPosition.y, 0);
 		}
 	}
 }

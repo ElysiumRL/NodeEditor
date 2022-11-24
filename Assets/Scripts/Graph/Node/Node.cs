@@ -134,13 +134,7 @@ namespace ElysiumGraphs
 					case ParameterInfos.ParameterType.OutValue:
 						unusedParam = PortBuilder.CreateInput(methodParam.type,
 							methodParam.name,
-							inputPortRootHierarchy.transform, false,
-							ObjectCollectionType.Any);
-						break;
-					case ParameterInfos.ParameterType.ReturnValue:
-						unusedParam = PortBuilder.CreateInput(methodParam.type,
-							methodParam.name,
-							inputPortRootHierarchy.transform, false,
+							outputPortRootHierarchy.transform, false,
 							ObjectCollectionType.Any);
 						break;
 					default:
@@ -158,7 +152,7 @@ namespace ElysiumGraphs
 		public virtual void ProcessNode()
 		{
 			//Parameters for the Method
-			List<object> inputParams = new List<object>();
+			List<object> inputParams = new();
 
 			int i = 0;
 			//Feeds the input parameters to the method
@@ -170,7 +164,6 @@ namespace ElysiumGraphs
 						inputParams.Add(inputs.Find(_port => _port.name == param.name)?.GetValue());
 						break;
 					case ParameterInfos.ParameterType.ReturnValue:
-						inputParams.Add(inputs.Find(_port => _port.name == param.name)?.GetValue());
 						break;
 					case ParameterInfos.ParameterType.OutValue:
 						inputParams.Add(null);
@@ -178,25 +171,20 @@ namespace ElysiumGraphs
 				}
 				i++;
 			}
-		
 
-			if(method.IsStatic)
+			ElysiumDebugInternal _internal = new();
+			//Method Execution (the very important bit)
+			if(returnValue != null)
 			{
-				returnValue.SetValue(method.Invoke(null, inputParams.ToArray()));
+				returnValue.SetValue(method.Invoke(_internal, inputParams.ToArray()));
 			}
 			else
 			{
-				if(returnValue != null)
-				{
-					returnValue.SetValue(method.Invoke(new ElysiumDebugInternal(), inputParams.ToArray()));
-				}
-				else
-				{
-					method.Invoke(new ElysiumDebugInternal(), inputParams.ToArray());
-				}
+				method.Invoke(_internal, inputParams.ToArray());
 			}
 
 			i = 0;
+			//Sends the out values (if there were) in the output ports
 			foreach (ParameterInfos param in methodToRun.parameters)
 			{
 				if (param.parameterType == ParameterInfos.ParameterType.OutValue)
