@@ -158,7 +158,7 @@ namespace ElysiumGraphs
 		{
 			uniqueID = GraphController.GenerateID(this);
 			rectTransform = GetComponent<RectTransform>();
-			text = GetComponentInChildren<TextMeshProUGUI>();
+			text = transform.parent.gameObject.GetComponentInChildren<TextMeshProUGUI>();
 			node = GetComponentInParent<Node>();
 			field = GetField();
 

@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8683248503310964802}
-  - component: {fileID: 2270929545571207410}
   - component: {fileID: 2671640081730468896}
   m_Layer: 0
   m_Name: PortHitbox
@@ -38,39 +37,8 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -63, y: 0}
-  m_SizeDelta: {x: 100.83, y: 24}
+  m_SizeDelta: {x: 100, y: 24}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2270929545571207410
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 267129549494624000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adc1e4baabcf0a84caa87f82d5790efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  uniqueID: 0
-  defaultName: Generic Input
-  portLinks: []
-  portType: {fileID: 11400000, guid: 0485153691d15f24fbd5c6aa74680f42, type: 2}
-  portConnectionType: 0
-  portIcons:
-    dictionary:
-    - key: 0
-      value: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-    - key: 1
-      value: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
-    - key: 2
-      value: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  portImage: {fileID: 2051191435239945986}
-  portState: 0
-  rectTransform: {fileID: 0}
-  text: {fileID: 0}
-  node: {fileID: 0}
-  portsConnected: []
 --- !u!222 &2671640081730468896
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -225,6 +193,7 @@ GameObject:
   - component: {fileID: 3117619170167074613}
   - component: {fileID: 6128808831589347255}
   - component: {fileID: 2051191435239945986}
+  - component: {fileID: 2429311064301260839}
   m_Layer: 6
   m_Name: Button
   m_TagString: Untagged
@@ -290,6 +259,37 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2429311064301260839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7198738035008976218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adc1e4baabcf0a84caa87f82d5790efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uniqueID: 0
+  defaultName: Generic Input
+  portLinks: []
+  portType: {fileID: 11400000, guid: 0485153691d15f24fbd5c6aa74680f42, type: 2}
+  portConnectionType: 0
+  portIcons:
+    dictionary:
+    - key: 0
+      value: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+    - key: 1
+      value: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+    - key: 2
+      value: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  portImage: {fileID: 2051191435239945986}
+  portState: 0
+  rectTransform: {fileID: 0}
+  text: {fileID: 0}
+  node: {fileID: 0}
+  portsConnected: []
 --- !u!1 &7698238960618148896
 GameObject:
   m_ObjectHideFlags: 0

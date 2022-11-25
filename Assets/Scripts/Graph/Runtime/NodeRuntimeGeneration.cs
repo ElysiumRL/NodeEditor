@@ -56,9 +56,11 @@ namespace ElysiumGraphs
 						continue;
 					}
 
+
 					MethodInfos newMethod = new MethodInfos(method.Name, type.Name, type.AssemblyQualifiedName);
 					int i = 0;
 
+					//Return Value
 					ParameterInfo[] parameters = method.GetParameters();
 					if (method.ReturnParameter != null && method.ReturnType != typeof(void))
 					{
@@ -71,7 +73,7 @@ namespace ElysiumGraphs
 						i++;
 					}
 
-
+					//Parameters
 					foreach (ParameterInfo methodParam in parameters)
 					{
 						if (methodParam.IsOut)
@@ -89,6 +91,13 @@ namespace ElysiumGraphs
 						i++;
 					}
 
+					//Add flags for pure & callable methods
+					if(type.GetCustomAttribute(typeof(MethodPure)) != null)
+					{
+					}
+					if (type.GetCustomAttribute(typeof(MethodCallable)) != null)
+					{
+					}
 					classBase.methods.Add(newMethod);
 				}
 

@@ -112,6 +112,7 @@ SpriteShapeRenderer:
   m_LocalAABB:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 10, y: 3.2, z: 0}
+  m_SpriteSortPoint: 0
 --- !u!114 &1031453199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,8 +133,6 @@ MonoBehaviour:
       rightTangent: {x: 0, y: 0, z: 0}
       mode: 0
       height: 1
-      bevelCutoff: 0
-      bevelSize: 0
       spriteIndex: 0
       corner: 0
       m_CornerMode: 0
@@ -142,8 +141,6 @@ MonoBehaviour:
       rightTangent: {x: 0, y: 0, z: 0}
       mode: 0
       height: 1
-      bevelCutoff: 0
-      bevelSize: 0
       spriteIndex: 0
       corner: 1
       m_CornerMode: 1
@@ -163,6 +160,8 @@ MonoBehaviour:
   m_EnableTangents: 0
   m_GeometryCached: 0
   m_UTess2D: 1
+  m_Creator: {fileID: 0}
+  m_Modifiers: []
 --- !u!68 &1931111573
 EdgeCollider2D:
   m_ObjectHideFlags: 0

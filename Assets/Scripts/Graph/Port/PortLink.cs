@@ -227,7 +227,11 @@ namespace ElysiumGraphs
 
 		public void DrawLink()
 		{
-			Color portTypeColor = new Color(portType.color.R,portType.color.G,portType.color.B,portType.color.A);
+			Color portTypeColor = new Color(
+				portType.color.R / 255f,
+				portType.color.G / 255f,
+				portType.color.B / 255f,
+				portType.color.A / 255f);
 			
 			if(PortLinkStatus == PortLinkState.Dragged)
 			{

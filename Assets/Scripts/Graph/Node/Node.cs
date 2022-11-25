@@ -63,7 +63,7 @@ namespace ElysiumGraphs
 		
 		public override string ToString()
 		{
-			return $"Node {defaultName} / ID :{uniqueID}";
+			return $"Node - {defaultName} / ID - {uniqueID}";
 		}
 
 		//This is executed BEFORE BeginPlay to ensure if node is valid or not
@@ -132,14 +132,14 @@ namespace ElysiumGraphs
 						break;
 					case ParameterInfos.ParameterType.OutValue:
 						unusedParam = PortBuilder.CreateInput(methodParam.type,
-							methodParam.name,
+							"Out " + methodParam.name,
 							inputPortRootHierarchy.transform, false,
 							ObjectCollectionType.Any);
 						break;
 					case ParameterInfos.ParameterType.ReturnValue:
 						unusedParam = PortBuilder.CreateInput(methodParam.type,
-							methodParam.name,
-							inputPortRootHierarchy.transform, true,
+							"Return Value",
+							inputPortRootHierarchy.transform, false,
 							ObjectCollectionType.Any);
 						break;
 					default:
