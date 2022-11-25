@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7747812143450400825}
   - component: {fileID: 4383617794246912805}
   - component: {fileID: 3405152425587622002}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Placeholder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67,7 +67,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: Placeholder
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -166,7 +166,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6733546852943910784}
   - component: {fileID: 8005269585482181642}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Text Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -220,7 +220,7 @@ GameObject:
   - component: {fileID: 2030544740203968988}
   - component: {fileID: 3007198392632257743}
   - component: {fileID: 5841627022851990817}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -355,10 +355,10 @@ GameObject:
   - component: {fileID: 7868576890989917617}
   - component: {fileID: 3647246433745502052}
   - component: {fileID: 4296900086617493617}
+  - component: {fileID: 1841729820971189982}
   - component: {fileID: 5165033495643997698}
-  - component: {fileID: 5743402591034337068}
-  m_Layer: 5
-  m_Name: Int Field
+  m_Layer: 9
+  m_Name: String Field
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -378,12 +378,12 @@ RectTransform:
   m_Children:
   - {fileID: 6733546852943910784}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 60, y: 30}
+  m_SizeDelta: {x: 200, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3647246433745502052
 CanvasRenderer:
@@ -423,6 +423,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1841729820971189982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6971670198637321328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d20056df2609ce40938fd40bbb269e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fieldValue: 
 --- !u!114 &5165033495643997698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -471,20 +484,32 @@ MonoBehaviour:
   m_VerticalScrollbarEventHandler: {fileID: 0}
   m_LayoutGroup: {fileID: 0}
   m_ScrollSensitivity: 1
-  m_ContentType: 2
+  m_ContentType: 0
   m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 4
+  m_KeyboardType: 0
   m_LineType: 0
   m_HideMobileInput: 0
   m_HideSoftKeyboard: 0
-  m_CharacterValidation: 2
+  m_CharacterValidation: 0
   m_RegexValue: 
   m_GlobalPointSize: 14
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1841729820971189982}
+        m_TargetAssemblyTypeName: ElysiumGraphs.StringField, Assembly-CSharp
+        m_MethodName: OnValueModified
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnSubmit:
     m_PersistentCalls:
       m_Calls: []
@@ -503,8 +528,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5743402591034337068}
-        m_TargetAssemblyTypeName: ElysiumGraphs.IntField, ElysiumGraphs
+      - m_Target: {fileID: 1841729820971189982}
+        m_TargetAssemblyTypeName: ElysiumGraphs.StringField, Assembly-CSharp
         m_MethodName: OnValueModified
         m_Mode: 0
         m_Arguments:
@@ -533,16 +558,3 @@ MonoBehaviour:
   m_isRichTextEditingAllowed: 0
   m_LineLimit: 0
   m_InputValidator: {fileID: 0}
---- !u!114 &5743402591034337068
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6971670198637321328}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95f433c9956a5434d9979de6fce27683, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fieldValue: 0

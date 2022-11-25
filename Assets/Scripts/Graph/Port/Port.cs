@@ -112,7 +112,13 @@ namespace ElysiumGraphs
 			if (portImage != null)
 			{
 				portImage.sprite = portIcons[portState];
-				portImage.color = new Color(portType.color.R,portType.color.G,portType.color.B,portType.color.A);
+				portImage.color = new Color
+					(
+					portType.color.R / 255f,
+					portType.color.G / 255f,
+					portType.color.B / 255f,
+					portType.color.A / 255f
+					);
 			}
 			text.text = defaultName;
 		}
@@ -126,7 +132,8 @@ namespace ElysiumGraphs
 					CreateLink();
 				}
 			}
-			text.text = defaultName;
+
+			UpdatePortState();
 
 		}
 

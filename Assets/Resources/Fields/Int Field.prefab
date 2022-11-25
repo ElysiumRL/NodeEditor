@@ -356,7 +356,7 @@ GameObject:
   - component: {fileID: 3647246433745502052}
   - component: {fileID: 4296900086617493617}
   - component: {fileID: 5165033495643997698}
-  - component: {fileID: 5743402591034337068}
+  - component: {fileID: 6606139920160729429}
   m_Layer: 5
   m_Name: Int Field
   m_TagString: Untagged
@@ -484,7 +484,19 @@ MonoBehaviour:
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6606139920160729429}
+        m_TargetAssemblyTypeName: ElysiumGraphs.IntField, ElysiumGraphs
+        m_MethodName: OnValueModified
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnSubmit:
     m_PersistentCalls:
       m_Calls: []
@@ -503,7 +515,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5743402591034337068}
+      - m_Target: {fileID: 6606139920160729429}
         m_TargetAssemblyTypeName: ElysiumGraphs.IntField, ElysiumGraphs
         m_MethodName: OnValueModified
         m_Mode: 0
@@ -533,7 +545,7 @@ MonoBehaviour:
   m_isRichTextEditingAllowed: 0
   m_LineLimit: 0
   m_InputValidator: {fileID: 0}
---- !u!114 &5743402591034337068
+--- !u!114 &6606139920160729429
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

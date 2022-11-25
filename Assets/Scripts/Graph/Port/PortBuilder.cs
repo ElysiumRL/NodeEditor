@@ -170,7 +170,7 @@ public static class PortBuilder
 	public static GameObject CreateInput(System.Type type, string name, Transform parent,bool addPortField,ObjectCollectionType collectionType)
 	{
 		GameObject port = GameObject.Instantiate(Resources.Load<GameObject>("Port/Prefabs/InputPort"), parent);
-		InputPort portComponent = port.GetComponent<InputPort>();
+		InputPort portComponent = port.GetComponentInChildren<InputPort>();
 		portComponent.portType = FindType(type, collectionType);
 		portComponent.defaultName = name;
 		portComponent.name = name;
@@ -184,17 +184,19 @@ public static class PortBuilder
 
 		return port;
 	}
-	public static GameObject CreateInput(string type, string name, Transform parent,bool addPortField,ObjectCollectionType collectionType)
+	public static GameObject CreateInput(string type, string name, Transform parent, bool addPortField, ObjectCollectionType collectionType)
 	{
 		GameObject port = GameObject.Instantiate(Resources.Load<GameObject>("Port/Prefabs/InputPort"), parent);
-		InputPort portComponent = port.GetComponent<InputPort>();
+		InputPort portComponent = port.GetComponentInChildren<InputPort>();
 		portComponent.portType = FindType(type, collectionType);
 		portComponent.defaultName = name;
 		portComponent.name = name;
+		Debug.Log("Add Input");
 
 		if (addPortField)
 		{
-			//GameObject field = CreateField(type, "Test", port.transform, true);
+			Debug.Log("Add Input Field");
+			GameObject field = CreateField(type, type + " Field", port.transform, true);
 		}
 		portComponent.UpdatePortState();
 		return port;
@@ -204,46 +206,67 @@ public static class PortBuilder
 	public static GameObject CreateOutput(System.Type type, string name, Transform parent,bool addPortField,ObjectCollectionType collectionType)
 	{
 		GameObject port = GameObject.Instantiate(Resources.Load<GameObject>("Port/Prefabs/OutputPort"), parent);
-		OutputPort portComponent = port.GetComponent<OutputPort>();
+		OutputPort portComponent = port.GetComponentInChildren<OutputPort>();
 		portComponent.portType = FindType(type,collectionType);
 		portComponent.defaultName = name;
 		portComponent.name = name;
 
 		if (addPortField)
 		{
-			//GameObject field = CreateField(type, "Test", port.transform, true);
+			GameObject field = CreateField(type, type + " Field", port.transform, true);
 		}
-		
+
 		return port;
 	}
 	public static GameObject CreateOutput(string type, string name, Transform parent,bool addPortField,ObjectCollectionType collectionType)
 	{
 		GameObject port = GameObject.Instantiate(Resources.Load<GameObject>("Port/Prefabs/OutputPort"), parent);
-		OutputPort portComponent = port.GetComponent<OutputPort>();
+		OutputPort portComponent = port.GetComponentInChildren<OutputPort>();
 		portComponent.portType = FindType(type,collectionType);
 		portComponent.defaultName = name;
 		portComponent.name = name;
 
 		if (addPortField)
 		{
-			//GameObject field = CreateField(type, "Test", port.transform, true);
+			GameObject field = CreateField(type, type + " Field", port.transform, true);
 		}
-		
+
 		return port;
 	}
 	public static GameObject CreateField(System.Type type, string name, Transform parent,bool addPortField)
 	{
-		//GameObject port = Object.Instantiate(Resources.Load<GameObject>("Port/Prefabs/OutputPort"), parent);
-		//OutputPort portComponent = port.GetComponent<OutputPort>();
-		//portComponent.portType = type;
-		//portComponent.defaultName = name;
-		//portComponent.name = name;
-		//return port;
+		if (IsFieldValid(type))
+		{
+			GameObject port = GameObject.Instantiate(Resources.Load<GameObject>("Fields/" + type.Name + " Field"), parent);		
+			return port;
+		}
+		Debug.LogWarning("Invalid Field type");
 		return null;
 	}
-	
-	
-	
+
+	public static GameObject CreateField(string type, string name, Transform parent, bool addPortField)
+	{
+		if (IsFieldValid(type))
+		{
+			GameObject port = GameObject.Instantiate(Resources.Load<GameObject>("Fields/" + type + " Field"), parent);
+			return port;
+		}
+		Debug.LogWarning(type + " - " + "Invalid Field type");
+		return null;
+	}
+	public static bool IsFieldValid(System.Type typeToMatch)
+	{
+		return
+			typeToMatch == typeof(int)
+			|| typeToMatch == typeof(string);
+
+	}
+	public static bool IsFieldValid(string typeToMatch)
+	{
+		return
+			typeToMatch == "Int"
+			|| typeToMatch == "String";
+	}
 	public static IFieldObject AddFieldToType(System.Type type,ObjectCollectionType collectionType)
 	{
 		return null;

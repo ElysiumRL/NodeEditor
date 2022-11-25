@@ -110,14 +110,14 @@ namespace ElysiumGraphs
 				return;
 			}
 
-			if (methodToRun.defaultReturnValue.name != string.Empty)
+			/*if (methodToRun.defaultReturnValue.name != string.Empty)
 			{
 				returnValue = PortBuilder.CreateOutput(methodToRun.defaultReturnValue.type,
 					                         methodToRun.name,
 					                         outputPortRootHierarchy.transform, false,
 					                         ObjectCollectionType.Any)
 				                         .GetComponent<OutputPort>();
-			}
+			}*/
 
 			foreach (ParameterInfos methodParam in methodToRun.parameters)
 			{
@@ -125,16 +125,21 @@ namespace ElysiumGraphs
 				switch (methodParam.parameterType)
 				{
 					case ParameterInfos.ParameterType.Default:
-						
 						unusedParam = PortBuilder.CreateOutput(methodParam.type,
 							methodParam.name,
-							outputPortRootHierarchy.transform, false,
+							outputPortRootHierarchy.transform, true,
 							ObjectCollectionType.Any);
 						break;
 					case ParameterInfos.ParameterType.OutValue:
 						unusedParam = PortBuilder.CreateInput(methodParam.type,
 							methodParam.name,
-							outputPortRootHierarchy.transform, false,
+							inputPortRootHierarchy.transform, false,
+							ObjectCollectionType.Any);
+						break;
+					case ParameterInfos.ParameterType.ReturnValue:
+						unusedParam = PortBuilder.CreateInput(methodParam.type,
+							methodParam.name,
+							inputPortRootHierarchy.transform, true,
 							ObjectCollectionType.Any);
 						break;
 					default:
