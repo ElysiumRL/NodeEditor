@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5bf2fafc23a6cb4c849ec82ded91161, type: 3}
+  m_Name: RuntimeAssetSave
+  m_EditorClassIdentifier: 
+  methods:
+  - {fileID: 11400000, guid: 70768e10c63106d44887eabc0299af6f, type: 2}
+  - {fileID: 11400000, guid: a846921ee0eaf3e4c9c58817a5f0741f, type: 2}
+  - {fileID: 11400000, guid: e60de6f8ed352bd4d93de691931d0ebe, type: 2}

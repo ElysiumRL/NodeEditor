@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5bf2fafc23a6cb4c849ec82ded91161, type: 3}
+  m_Name: DoubleClickButton
+  m_EditorClassIdentifier: 
+  methods:
+  - {fileID: 11400000, guid: ec8dbe25f495ced498aca9c64cec3d3f, type: 2}
+  - {fileID: 11400000, guid: fe227ec204ad8ed47b0c0c1a765bd98e, type: 2}
+  - {fileID: 11400000, guid: a9404492a51f06c428d4f09c4b0d4800, type: 2}
+  - {fileID: 11400000, guid: 17cdbc74d2f9ffb43afd770c245bbddb, type: 2}
+  - {fileID: 11400000, guid: 41328256f8b4d2a4097a00e37d8ece9d, type: 2}
+  - {fileID: 11400000, guid: bc019bfe747bddd4aacf4330d770dfb6, type: 2}
+  - {fileID: 11400000, guid: 6ce59bef29b11a544b562cfc32f54efd, type: 2}
+  - {fileID: 11400000, guid: 556270799de8d554284512019fd9382d, type: 2}
+  - {fileID: 11400000, guid: 227d1b5503f070a42b17dc5d4adfa2bf, type: 2}
