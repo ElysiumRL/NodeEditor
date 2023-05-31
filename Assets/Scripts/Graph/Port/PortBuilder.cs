@@ -229,6 +229,7 @@ public static class PortBuilder
 		if (addPortField)
 		{
 			GameObject field = CreateField(type, type + " Field", port.transform, true);
+			portComponent.field = field.GetComponent<IFieldObject>();
 		}
 
 		return port;

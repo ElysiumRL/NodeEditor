@@ -166,7 +166,7 @@ namespace ElysiumGraphs
 				switch (param.parameterType)
 				{
 					case ParameterInfos.ParameterType.Default:
-						inputParams.Add(inputs.Find(_port => _port.name == param.name)?.GetValue());
+						inputParams.Add(outputs.Find(_port => _port.name == param.name)?.GetValue());
 						break;
 					case ParameterInfos.ParameterType.ReturnValue:
 						break;
